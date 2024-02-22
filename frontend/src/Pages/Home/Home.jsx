@@ -5,11 +5,11 @@ import FlotingText from "./sub_HomeCompoents/FlotingText";
 function Home() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
   return (
-    <div>
+    <Box>
       <Box h={isLargerThan ? "8vh" : "5vh"}></Box>
       <Info />
       <FlotingText />
-    </div>
+    </Box>
   );
 }
 

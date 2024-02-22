@@ -1,1 +1,9 @@
+.flotingText {
+  font-size: 124px !important;
+}
 
+@media screen and (max-width: 800px) {
+  .flotingText {
+    font-size: 54px !important;
+  }
+}
