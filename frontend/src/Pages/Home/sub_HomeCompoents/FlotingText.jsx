@@ -5,7 +5,7 @@ function FlotingText() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
   return (
     <VStack
-      h={isLargerThan ? "90vh" : "70vh"}
+      h={isLargerThan ? "90vh" : "40vh"}
       justifyContent={"center"}
       whiteSpace={"nowrap"}
       overflow={"hidden"}
