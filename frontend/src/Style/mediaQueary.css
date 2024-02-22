@@ -2,6 +2,10 @@
   font-size: 124px !important;
 }
 
+::-webkit-scrollbar{
+  display: none !important;
+}
+
 @media screen and (max-width: 800px) {
   .flotingText {
     font-size: 34px !important;
