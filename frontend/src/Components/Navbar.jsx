@@ -1,9 +1,11 @@
 import {
   Box,
+  Card,
   HStack,
   Heading,
   Text,
   VStack,
+  transition,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { HashRouter, Link } from "react-router-dom";
@@ -68,13 +70,16 @@ function Navbar() {
             </>
           )}
         </HStack>
+
         {openManu === true ? (
-          <VStack>
-            <Manu title={"Services"} hashLink={"#Services"} />
-            <Manu title={"Skills"} hashLink={"#skills"} />
-            <Manu title={"Work"} hashLink={"#Work"} />
-            <Manu title={"Contact"} hashLink={"#Contact"} />
-          </VStack>
+          <Card bg={"#171717"} color={"white"} m={2} border={"2px"}>
+            <Box p={2}>
+              <Manu title={"Services"} hashLink={"#Services"} />
+              <Manu title={"Skills"} hashLink={"#skills"} />
+              <Manu title={"Work"} hashLink={"#Work"} />
+              <Manu title={"Contact"} hashLink={"#Contact"} />
+            </Box>
+          </Card>
         ) : (
           <></>
         )}
