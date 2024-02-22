@@ -9,7 +9,16 @@ import {
 } from "@chakra-ui/react";
 import codingImg from "/src/assets/Img/image.png";
 import ReactImg from "/src/assets/Img/Skills/react.png";
-import NextJs from "/src/assets/Img/Skills/nextjs.png";
+import NextJs from "/src/assets/Img/Skills/nextjs.jpeg";
+import tailwind from "/src/assets/Img/Skills/tailwind.png";
+import html from "/src/assets/Img/Skills/html.png";
+import git from "/src/assets/Img/Skills/git.png";
+import js from "/src/assets/Img/Skills/js.png";
+import mongoDB from "/src/assets/Img/Skills/mongoDB.png";
+import android from "/src/assets/Img/Skills/android.png";
+import nodejs from "/src/assets/Img/Skills/nodejs.png";
+import chakra from "/src/assets/Img/Skills/chakra.jpeg";
+import Title from "../../../Components/Title";
 function Skills() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
   return (
@@ -19,12 +28,12 @@ function Skills() {
         justifyContent={"center"}
         w={isLargerThan ? "100%" : "100%"}
       >
-        <Heading>My Skills</Heading>
+        <Title title={"My Skills"} />
 
         <HStack
           w={isLargerThan ? "100%" : "100%"}
           flexWrap={isLargerThan ? "nowrap" : "wrap"}
-          justifyContent={"space-between"}
+          justifyContent={"normal"}
         >
           <Box
             maxW={isLargerThan ? "50%" : "100%"}
@@ -38,23 +47,31 @@ function Skills() {
             <HStack
               overflow={"auto"}
               flexWrap={isLargerThan ? "wrap" : "nowrap"}
-              justifyContent={"center"}
+              justifyContent={"normal"}
             >
+              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
+              <SkillIcons
+                imgUrl={"https://chirag.codes/skills/nextjs.webp"}
+                skillName={"Next Js"}
+              />
+              <SkillIcons imgUrl={html} skillName={"HTML"} />
+              <SkillIcons imgUrl={tailwind} skillName={"Tailwind CSS"} />
+              <SkillIcons imgUrl={chakra} skillName={"Chakra UI"} />
+              <SkillIcons imgUrl={js} skillName={"Javascript"} />
+              <SkillIcons imgUrl={nodejs} skillName={"Node JS"} />
+              <SkillIcons imgUrl={mongoDB} skillName={"MongoDB"} />
               <SkillIcons
                 imgUrl={
-                  "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png"
+                  "https://avatars.githubusercontent.com/u/18133?s=200&v=4"
                 }
-                skillName={"Python"}
+                skillName={"GIT"}
               />
-
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
-              <SkillIcons imgUrl={"https://w7.pngwing.com/pngs/87/586/png-transparent-next-js-hd-logo.png"} skillName={"Next Js"} />
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
-              <SkillIcons imgUrl={ReactImg} skillName={"React Js"} />
+              <SkillIcons
+                imgUrl={
+                  "https://upload.wikimedia.org/wikipedia/commons/c/c1/Android_Studio_icon_%282023%29.svg"
+                }
+                skillName={"Android"}
+              />
             </HStack>
           </Box>
         </HStack>
@@ -65,7 +82,7 @@ function Skills() {
 function SkillIcons({ imgUrl, skillName }) {
   return (
     <>
-      <VStack m={5} p={2}>
+      <VStack m={3} p={2}>
         <Box p={2} h={"120px"}>
           <Image w={"100px"} src={imgUrl} />
         </Box>
