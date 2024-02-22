@@ -1,0 +1,8 @@
+@media screen and (max-width: 800px) {
+  .manu {
+    display: none !important;
+  }
+  .info {
+    max-width: 100% !important;
+  }
+}
