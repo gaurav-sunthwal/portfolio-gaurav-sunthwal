@@ -24,7 +24,7 @@ function Skills() {
   return (
     <div>
       <VStack
-        h={"100vh"}
+        h={isLargerThan ? "100vh" : "auto"}
         justifyContent={"center"}
         w={isLargerThan ? "100%" : "100%"}
       >

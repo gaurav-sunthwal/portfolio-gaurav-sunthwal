@@ -14,12 +14,39 @@ import {
 } from "@chakra-ui/react";
 import Title from "../../../Components/Title";
 import { Link } from "react-router-dom";
-
-import { VscGithubInverted } from "react-icons/vsc";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 function Contact() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
+
+  // Form Data
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_734aiqi",
+        "template_4r1j11q",
+        form.current,
+        "PCu8cBYWjJNRMZQG2"
+      )
+      .then(
+        (result) => {
+          alert(result.text);
+        },
+        (error) => {
+          alert(error.text);
+        }
+      );
+    e.target.reset();
+  };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
+
+  function handalClick() {}
   return (
     <div>
       <Box h={"100vh"} p={3}>
@@ -32,17 +59,39 @@ function Contact() {
             justifyContent={isLargerThan ? "center" : "normal"}
           >
             <Box maxW={"100%"} w={isLargerThan ? "60%" : "100%"}>
-              <form>
-                <FormElement lable={"Enter Name"} type={"name"} />
-                <FormElement lable={"Enter Email"} type={"email"} />
+              <form ref={form} onSubmit={sendEmail}>
+                <FormElement
+                  lable={"Enter Name"}
+                  type={"name"}
+                  // value={name}
+                  name_id={"from_name"}
+                  // onChange={(e) => {
+                  //   setName(e.target.value);
+                  // }}
+                />
+                <FormElement
+                  lable={"Enter Email"}
+                  type={"email"}
+                  name_id={"user_email"}
+                  // value={email}
+                  // onChange={(e) => {
+                  //   setEmail(e.target.value);
+                  // }}
+                />
                 <Box m={3}>
                   <FormControl>
                     <FormLabel>Message</FormLabel>
-                    <Textarea />
+                    <Textarea
+                    // value={message}
+                    name="message"
+                    // onChange={(e) => {
+                    //   setMessage(e.target.value);
+                    // }}
+                    />
                   </FormControl>
                 </Box>
                 <VStack p={3}>
-                  <Button m={3} w={"60%"}>
+                  <Button type="submit" m={3} w={"60%"} onClick={handalClick}>
                     Submit
                   </Button>
                 </VStack>
@@ -67,13 +116,13 @@ function Contact() {
   );
 }
 
-function FormElement({ lable, type }) {
+function FormElement({ lable, type, value, onChange, name_id }) {
   return (
     <>
       <Box m={3}>
         <FormControl>
           <FormLabel>{lable}</FormLabel>
-          <Input type={type} />
+          <Input type={type} value={value} onChange={onChange} name={name_id} />
         </FormControl>
       </Box>
     </>
