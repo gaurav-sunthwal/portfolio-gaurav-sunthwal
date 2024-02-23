@@ -85,6 +85,7 @@ function Contact() {
                   <FormControl>
                     <FormLabel>Message</FormLabel>
                     <Textarea
+                      rows={isLargerThan ? "10" : "7"}
                       required
                       // value={message}
                       name="message"

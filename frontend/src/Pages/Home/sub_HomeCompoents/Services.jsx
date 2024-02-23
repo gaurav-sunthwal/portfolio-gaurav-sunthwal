@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
   VStack,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import Title from "../../../Components/Title";
 
@@ -22,13 +23,14 @@ import backend from "/src/assets/ServicesImg/backend.png";
 import { motion } from "framer-motion";
 
 function Services() {
+  const [isLargerThan] = useMediaQuery("(min-width:1000px)");
   return (
     <div>
       <VStack h={"auto"} justifyContent={"center"}>
         <Box p={3}>
           <Title title={"Services"} />
         </Box>
-        <HStack p={3} flexWrap={"wrap"} justifyContent={"center"}>
+        <HStack p={3} flexWrap={"wrap"} justifyContent={"space-between"}>
           <ServicesCard
             imgUrl={fullstack}
             title={"Fullstack Web App"}
@@ -57,6 +59,7 @@ function Services() {
 }
 
 function ServicesCard({ imgUrl, title, discription }) {
+  const [isLargerThan] = useMediaQuery("(min-width:1000px)");
   return (
     <>
       <motion.div
@@ -64,21 +67,23 @@ function ServicesCard({ imgUrl, title, discription }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: false }}
       >
-        <Box p={3}>
-          <Card maxW={"sm"} h={"700px"} bg={"#171717"} color={"white"}>
-            <CardBody>
-              <Image
-                src={imgUrl}
-                alt="Green double couch with wooden legs"
-                borderRadius="lg"
-              />
-              <Stack mt="6" spacing="3">
-                <Heading size="md">{title}</Heading>
-                <Text>{discription}</Text>
-              </Stack>
-            </CardBody>
-          </Card>
-        </Box>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <Box p={3} m={isLargerThan ? 4 : 0}>
+            <Card maxW={"sm"} h={"700px"} bg={"#171717"} color={"white"}>
+              <CardBody>
+                <Image
+                  src={imgUrl}
+                  alt="Green double couch with wooden legs"
+                  borderRadius="lg"
+                />
+                <Stack mt="6" spacing="3">
+                  <Heading size="md">{title}</Heading>
+                  <Text>{discription}</Text>
+                </Stack>
+              </CardBody>
+            </Card>
+          </Box>
+        </motion.button>
       </motion.div>
     </>
   );
