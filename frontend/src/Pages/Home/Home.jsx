@@ -13,8 +13,8 @@ function Home() {
       <Info />
       <FlotingText />
       <Skills />
-      <Services/>
-      <Contact/>
+      <Services />
+      <Contact />
     </Box>
   );
 }

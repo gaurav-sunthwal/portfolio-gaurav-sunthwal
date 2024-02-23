@@ -49,18 +49,18 @@ function Contact() {
               </form>
             </Box>
           </HStack>
-          <HStack justifyContent={"space-around"} w={"70%"} flexWrap={"wrap"}>
+          {/* <HStack justifyContent={"space-around"} w={"70%"} flexWrap={"wrap"}>
             <HStack>
-              <SocalCard icon={<VscGithubInverted />} />
-              <SocalCard icon={<FaInstagram />} />
-              <SocalCard icon={<FaLinkedin />} />
+              <SocalCard icon={<FaInstagram />} link={"https:/instagram.com/gaurav_sunthwal"}/>
+              <SocalCard icon={<VscGithubInverted />} link={"https://github.com/gaurav-sunthwal"} />
+              <SocalCard icon={<FaLinkedin />} link={"https://www.linkedin.com/in/gaurav-sunthwal/"} />
             </HStack>
             <Box>
               <a href="mailto:gauravsunthwal162022@gmail.com" target="blank">
                 <Heading size={"sm"}>gauravsunthwal162022@gmail.com</Heading>
               </a>
             </Box>
-          </HStack>
+          </HStack> */}
         </VStack>
       </Box>
     </div>
@@ -84,7 +84,7 @@ function SocalCard({ link, icon }) {
   return (
     <>
       <Box m={3}>
-        <Link to={link}>
+        <Link to={link} target="blank">
           <Heading>{icon}</Heading>
         </Link>
       </Box>
