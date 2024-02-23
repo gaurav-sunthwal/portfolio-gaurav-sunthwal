@@ -19,6 +19,7 @@ import android from "/src/assets/Img/Skills/android.png";
 import nodejs from "/src/assets/Img/Skills/nodejs.png";
 import chakra from "/src/assets/Img/Skills/chakra.jpeg";
 import Title from "../../../Components/Title";
+import { motion } from "framer-motion";
 function Skills() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
   return (
@@ -83,12 +84,14 @@ function SkillIcons({ imgUrl, skillName }) {
   return (
     <>
       <VStack m={3} p={2} justifyContent={"center"}>
-        <Box p={2} h={"120px"} alignItems={"center"}>
-          <Image w={"100px"}  src={imgUrl} />
-        </Box>
-        <Heading size={"md"} m={3}>
-          {skillName}
-        </Heading>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <Box p={2} h={"120px"} alignItems={"center"}>
+            <Image w={"100px"} src={imgUrl} />
+          </Box>
+          <Heading size={"md"} m={3}>
+            {skillName}
+          </Heading>
+        </motion.button>
       </VStack>
     </>
   );

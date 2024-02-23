@@ -16,6 +16,7 @@ import Title from "../../../Components/Title";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 function Contact() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
 
@@ -34,10 +35,10 @@ function Contact() {
       )
       .then(
         (result) => {
-          alert(result.text);
+          toast.success("Successfully Received!");
         },
         (error) => {
-          alert(error.text);
+          toast(error.text);
         }
       );
     e.target.reset();
@@ -47,8 +48,10 @@ function Contact() {
   // const [message, setMessage] = useState("");
 
   function handalClick() {}
+
   return (
     <div>
+      <Toaster />
       <Box h={"100vh"} p={3}>
         <VStack h={"100vh"} justifyContent={"center"} w={"100%"}>
           <Box p={3}>
@@ -82,11 +85,12 @@ function Contact() {
                   <FormControl>
                     <FormLabel>Message</FormLabel>
                     <Textarea
-                    // value={message}
-                    name="message"
-                    // onChange={(e) => {
-                    //   setMessage(e.target.value);
-                    // }}
+                      required
+                      // value={message}
+                      name="message"
+                      // onChange={(e) => {
+                      //   setMessage(e.target.value);
+                      // }}
                     />
                   </FormControl>
                 </Box>
@@ -122,7 +126,13 @@ function FormElement({ lable, type, value, onChange, name_id }) {
       <Box m={3}>
         <FormControl>
           <FormLabel>{lable}</FormLabel>
-          <Input type={type} value={value} onChange={onChange} name={name_id} />
+          <Input
+            type={type}
+            value={value}
+            onChange={onChange}
+            name={name_id}
+            required
+          />
         </FormControl>
       </Box>
     </>

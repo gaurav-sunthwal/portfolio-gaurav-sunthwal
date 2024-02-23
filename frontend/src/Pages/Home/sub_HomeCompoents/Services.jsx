@@ -19,6 +19,8 @@ import fullstack from "/src/assets/ServicesImg/fullstack.png";
 import frontend from "/src/assets/ServicesImg/frontend.png";
 import backend from "/src/assets/ServicesImg/backend.png";
 
+import { motion } from "framer-motion";
+
 function Services() {
   return (
     <div>
@@ -57,32 +59,27 @@ function Services() {
 function ServicesCard({ imgUrl, title, discription }) {
   return (
     <>
-      <Box p={3}>
-        <Card maxW={"sm"} h={"700px"} bg={"#171717"} color={"white"}>
-          <CardBody>
-            <Image
-              src={imgUrl}
-              alt="Green double couch with wooden legs"
-              borderRadius="lg"
-            />
-            <Stack mt="6" spacing="3">
-              <Heading size="md">{title}</Heading>
-              <Text>{discription}</Text>
-            </Stack>
-          </CardBody>
-          {/* <Divider /> */}
-          {/* <CardFooter>
-            <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="blue">
-                Buy now
-              </Button>
-              <Button variant="ghost" colorScheme="blue">
-                Add to cart
-              </Button>
-            </ButtonGroup>
-          </CardFooter> */}
-        </Card>
-      </Box>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false }}
+      >
+        <Box p={3}>
+          <Card maxW={"sm"} h={"700px"} bg={"#171717"} color={"white"}>
+            <CardBody>
+              <Image
+                src={imgUrl}
+                alt="Green double couch with wooden legs"
+                borderRadius="lg"
+              />
+              <Stack mt="6" spacing="3">
+                <Heading size="md">{title}</Heading>
+                <Text>{discription}</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+        </Box>
+      </motion.div>
     </>
   );
 }
