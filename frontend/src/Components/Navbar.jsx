@@ -29,6 +29,7 @@ function Navbar() {
           position: "fixed",
           backdropFilter: blur("10px"),
           backgroundColor: "#171717b3",
+          zIndex: 1000
         }}
       >
         <HStack p={3} justifyContent={"space-between"}>

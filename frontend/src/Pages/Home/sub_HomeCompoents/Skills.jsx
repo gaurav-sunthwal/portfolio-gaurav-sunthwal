@@ -82,9 +82,9 @@ function Skills() {
 function SkillIcons({ imgUrl, skillName }) {
   return (
     <>
-      <VStack m={3} p={2}>
-        <Box p={2} h={"120px"}>
-          <Image w={"100px"} src={imgUrl} />
+      <VStack m={3} p={2} justifyContent={"center"}>
+        <Box p={2} h={"120px"} alignItems={"center"}>
+          <Image w={"100px"}  src={imgUrl} />
         </Box>
         <Heading size={"md"} m={3}>
           {skillName}
