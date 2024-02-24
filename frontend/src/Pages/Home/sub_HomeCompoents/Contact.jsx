@@ -52,8 +52,8 @@ function Contact() {
   return (
     <div>
       <Toaster />
-      <Box h={"100vh"} p={3}>
-        <VStack minH={"100vh"} justifyContent={"center"} w={"100%"}>
+      <Box  p={3}>
+        <VStack minH={isLargerThan ? "100vh" : "auto"} justifyContent={"center"} w={"100%"}>
           <Box p={3}>
             <Title title={"Contact Me"} />
           </Box>
