@@ -30,7 +30,7 @@ function Services() {
         <Box p={3}>
           <Title title={"Services"} />
         </Box>
-        <HStack p={3} flexWrap={"wrap"} justifyContent={"space-between"}>
+        <HStack p={3} flexWrap={"wrap"} justifyContent={isLargerThan ? "space-between" : "center"}>
           <ServicesCard
             imgUrl={fullstack}
             title={"Fullstack Web App"}
@@ -68,7 +68,7 @@ function ServicesCard({ imgUrl, title, discription }) {
         viewport={{ once: false }}
       >
         <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <Box p={3} m={isLargerThan ? 4 : 0}>
+          <Box p={3} m={isLargerThan ? 4 : 2}>
             <Card maxW={"sm"} h={"700px"} bg={"#171717"} color={"white"}>
               <CardBody>
                 <Image

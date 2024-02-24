@@ -29,7 +29,7 @@ function Navbar() {
           position: "fixed",
           backdropFilter: blur("10px"),
           backgroundColor: "#171717b3",
-          zIndex: 1000
+          zIndex: 1000,
         }}
       >
         <HStack p={3} justifyContent={"space-between"}>
@@ -89,11 +89,14 @@ function Navbar() {
   );
 }
 
-function Manu({ title, hashLink }) {
+function Manu({ title, hashLink  }) {
   return (
     <>
       <Box m={2}>
-        <Link to={hashLink}>
+        <Link
+          to={hashLink}
+          
+        >
           <Text fontSize={"21px"} fontWeight={"500"}>
             {title}
           </Text>

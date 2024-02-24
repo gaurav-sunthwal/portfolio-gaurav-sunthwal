@@ -53,7 +53,7 @@ function Contact() {
     <div>
       <Toaster />
       <Box h={"100vh"} p={3}>
-        <VStack h={"100vh"} justifyContent={"center"} w={"100%"}>
+        <VStack minH={"100vh"} justifyContent={"center"} w={"100%"}>
           <Box p={3}>
             <Title title={"Contact Me"} />
           </Box>

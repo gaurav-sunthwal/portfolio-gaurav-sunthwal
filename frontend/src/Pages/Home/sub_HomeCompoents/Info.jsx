@@ -30,7 +30,10 @@ function Info() {
               <Box
                 maxW={isLargerThan ? "50%" : "100%"}
                 display={"block"}
-                m={"auto"}
+                m={isLargerThan ? "auto" : "10px"}
+                p={2}
+                position={"relative"}
+                left={isLargerThan ? "0%" : "60%"}
               >
                 <Image w={"120px"} borderRadius={"50%"} src={myImg} />
               </Box>

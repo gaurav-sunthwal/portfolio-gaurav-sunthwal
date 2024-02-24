@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 // import "./App.css";
 import "./Style/mediaQueary.css";
 import Home_Footer from "./Components/Home_Footer";
+import About from "./Pages/About/About";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
         </Routes>
         <Home_Footer />
       </Router>
