@@ -12,7 +12,7 @@ function Home() {
 
   return (
     <Box>
-      <Box h={isLargerThan ? "1vh" : "3vh"}></Box>
+      <Box h={isLargerThan ? "1vh" : "5vh"}></Box>
       <Box id="Home">
         <Info />
       </Box>
