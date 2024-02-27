@@ -13,7 +13,7 @@ function Info() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
   return (
     <div>
-      <Box m={5}>
+      <VStack h={"100vh"} justifyContent={"center"} m={5}>
         <HStack justify={"space-evenly"} color={"#F4E7D4"} flexWrap={"wrap"}>
           <VStack>
             <Heading
@@ -53,7 +53,7 @@ function Info() {
             </HStack>
           </VStack>
         </HStack>
-      </Box>
+      </VStack>
     </div>
   );
 }

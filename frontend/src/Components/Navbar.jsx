@@ -8,10 +8,18 @@ import {
   transition,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { HashRouter, Link } from "react-router-dom";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 import { IoMenu } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import NavBarContext from "../Context/NavbarContext";
 function Navbar() {
   const [isLargerThan] = useMediaQuery("(min-width: 1000px)");
   const [openManu, setOpenManu] = useState(false);
@@ -41,9 +49,9 @@ function Navbar() {
           {isLargerThan ? (
             <>
               <HStack className="manu">
-                <Manu title={"Services"} hashLink={"#Services"} />
+                <Manu title={"Home"} hashLink={"#Home"} />
                 <Manu title={"Skills"} hashLink={"#skills"} />
-                <Manu title={"Work"} hashLink={"#Work"} />
+                <Manu title={"Services"} hashLink={"#Services"} />
                 <Manu title={"Contact"} hashLink={"#Contact"} />
               </HStack>
             </>
@@ -75,9 +83,9 @@ function Navbar() {
         {openManu === true ? (
           <Card bg={"#171717"} color={"white"} m={2} border={"2px"}>
             <Box p={2}>
-              <Manu title={"Services"} hashLink={"#Services"} />
+              <Manu title={"Home"} hashLink={"#Home"} />
               <Manu title={"Skills"} hashLink={"#skills"} />
-              <Manu title={"Work"} hashLink={"#Work"} />
+              <Manu title={"Services"} hashLink={"#Services"} />
               <Manu title={"Contact"} hashLink={"#Contact"} />
             </Box>
           </Card>
@@ -89,13 +97,24 @@ function Navbar() {
   );
 }
 
-function Manu({ title, hashLink  }) {
+function Manu({ title, hashLink }) {
+  const { setMenu } = useContext(NavBarContext);
   return (
     <>
-      <Box m={2}>
+      <Box
+        cursor={"pointer"}
+        m={2}
+        onClick={() => {
+          setMenu(title);
+        }}
+      >
         <Link
-          to={hashLink}
-          
+          to={title}
+          activeClass={title}
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
         >
           <Text fontSize={"21px"} fontWeight={"500"}>
             {title}

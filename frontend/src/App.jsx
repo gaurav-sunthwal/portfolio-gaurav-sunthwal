@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Info from "./Pages/Home/sub_HomeCompoents/Info";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
@@ -8,7 +8,6 @@ import "./Style/mediaQueary.css";
 import Home_Footer from "./Components/Home_Footer";
 import About from "./Pages/About/About";
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
